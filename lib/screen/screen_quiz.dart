@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:quizapptest/model/model_quiz.dart';
+import 'package:quizapptest/screen/screen_result.dart';
 import 'package:quizapptest/widget/widget_candidate.dart';
 
 class QuizScreen extends StatefulWidget{
@@ -101,7 +102,15 @@ class _QuizScreenState extends State<QuizScreen> {
                   onPressed: _answers[_currentIndex] == -1
                       ? null
                       : () {
-                    if (_currentIndex == widget.quizs.length - 1) {}
+                    if (_currentIndex == widget.quizs.length - 1) {
+                      Navigator.push(
+                          context, MaterialPageRoute(
+                          builder: (context) => ResultScreen(
+                              answers: _answers, quizs: widget.quizs
+                      )
+                      )
+                      );
+                    }
                     else {
                       _answerState = [false, false, false, false];
                       _currentIndex += 1;

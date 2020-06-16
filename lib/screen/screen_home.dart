@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   double width = screenSize.width;
   double height = screenSize.height; // 상대수치 활용하겠다는 것
 
-  return WillPopScope(
+  return WillPopScope( //얘도 screen_result처럼 이상한데 안돌아가도록
       onWillPop: () async => false,
       child: SafeArea( //기기의 상단 노티 바 부분, 하단 영역을 침범하지 않는 안전한 영역을 잡아주는 위젯
         child: Scaffold (
